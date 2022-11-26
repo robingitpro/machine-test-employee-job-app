@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-route::get("/", [JobController::class, 'index'])->name('home');
+Route::get("/", [JobController::class, 'index'])->name('home');
 Route::group(['prefix' => 'jobs', 'as' => 'jobs.'], function () {
-    route::get('post', [JobController::class, 'post_a_job'])->name('post');
-    route::post('store', [JobController::class, 'store'])->name('store');
-    route::get('view/{id}', [JobController::class, 'job_detail'])->name('view');
-    route::post('load', [JobController::class, 'searchajaxjobsload'])->name('load');
+    Route::get('post', [JobController::class, 'post_a_job'])->name('post');
+    Route::post('store', [JobController::class, 'store'])->name('store');
+    Route::get('view/{id}', [JobController::class, 'job_detail'])->name('view');
+    Route::post('load', [JobController::class, 'searchajaxjobsload'])->name('load');
 });
 Route::group(['prefix' => 'candidates', 'as' => 'candidates.'], function () {
-    route::get('create/{id}', [CandidateController::class, 'index'])->name('create');
-    route::post('store/{id}', [CandidateController::class, 'store'])->name('store');
-    route::get('list/{id}', [CandidateController::class, 'candidate_list'])->name('list');
+    Route::get('create/{id}', [CandidateController::class, 'index'])->name('create');
+    Route::post('store/{id}', [CandidateController::class, 'store'])->name('store');
+    Route::get('list/{id}', [CandidateController::class, 'candidate_list'])->name('list');
 });
